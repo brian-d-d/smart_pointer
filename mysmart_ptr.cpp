@@ -1,7 +1,7 @@
 #include "mysmart_ptr.h"
 
 template <typename T>
-mysmart_ptr<T>::mysmart_ptr(T* ptr) : ptr_(new int()), count_(new int(1)) {
+mysmart_ptr<T>::mysmart_ptr(T* ptr) : ptr_(new T()), count_(new int(1)) {
     *ptr_ = *ptr;
 }
 
@@ -13,7 +13,7 @@ mysmart_ptr<T>::mysmart_ptr(mysmart_ptr<T>& smart_ptr) {
 }
 
 template <typename T>
-mysmart_ptr<T>::mysmart_ptr() : ptr_(new int()), count_(new int(1)) {
+mysmart_ptr<T>::mysmart_ptr() : ptr_(new T()), count_(new int(1)) {
 
 }
 
@@ -60,5 +60,6 @@ void mysmart_ptr<T>::operator=(mysmart_ptr<T>& rhs) {
     (*count_)++;
 }
 
+template class mysmart_ptr<double>;
+template class mysmart_ptr<char>;
 template class mysmart_ptr<int>;
-
