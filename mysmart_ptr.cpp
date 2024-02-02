@@ -1,21 +1,31 @@
 #include "mysmart_ptr.h"
 
 template <typename T>
-mysmart_ptr<T>::mysmart_ptr(T* ptr) : ptr_(ptr), count_(nullptr) {
-    count_ = (int*) malloc(sizeof(int));
-    *count_ = 1;
+mysmart_ptr<T>::mysmart_ptr(T* ptr) : ptr_(new int()), count_(new int(1)) {
+    *ptr_ = *ptr;
 }
 
 template <typename T>
-mysmart_ptr<T>::mysmart_ptr(T* ptr, int* count) : ptr_(ptr), count_(count) {
+mysmart_ptr<T>::mysmart_ptr(mysmart_ptr<T>& smart_ptr) {
+    ptr_ = smart_ptr.getPtr();
+    count_ = smart_ptr.getCount();
+    (*count_)++;
+}
+
+template <typename T>
+mysmart_ptr<T>::mysmart_ptr() : ptr_(new int()), count_(new int(1)) {
 
 }
 
 template <typename T>
-mysmart_ptr<T>::mysmart_ptr() : ptr_(nullptr), count_(nullptr) {
-    ptr_ = (T*) malloc(sizeof(T));
-    count_ = (int*) malloc(sizeof(int));
-    *count_ = 1;
+mysmart_ptr<T>::~mysmart_ptr() {
+    std::cout << "Got destructor with count: " << (*count_) << std::endl;
+    (*count_)--;
+    if ((*count_) == 0) {
+        std::cout << "Deleted" << std::endl;
+        delete ptr_;
+        delete count_;
+    }
 }
 
 template <typename T>

@@ -3,15 +3,17 @@
 
 #include <iostream>
 
-template <typename T>
+template <class T>
 class mysmart_ptr {
 
     public:
         mysmart_ptr(T *ptr);
 
-        mysmart_ptr(T *ptr, int* count);
-        
+        mysmart_ptr(mysmart_ptr<T>& smart_ptr);
+    
         mysmart_ptr();
+
+        ~mysmart_ptr();
 
         void operator=(mysmart_ptr<T>& their_smart_ptr);
 
