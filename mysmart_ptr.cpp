@@ -1,8 +1,8 @@
 #include "mysmart_ptr.h"
 
 template <typename T>
-mysmart_ptr<T>::mysmart_ptr(T* ptr) : ptr_(new T()), count_(new int(1)) {
-    *ptr_ = *ptr;
+mysmart_ptr<T>::mysmart_ptr(T* ptr) : ptr_(), count_(new int(1)) {
+    ptr_ = ptr;
 }
 
 template <typename T>

@@ -7,10 +7,13 @@ template <class T>
 class mysmart_ptr {
 
     public:
+        //Passing something like new int() as the argument
         mysmart_ptr(T *ptr);
 
+        //Passing an existing smart pointer
         mysmart_ptr(mysmart_ptr<T>& smart_ptr);
-    
+
+        //Creates a new smart pointer with memory allocated
         mysmart_ptr();
 
         ~mysmart_ptr();
