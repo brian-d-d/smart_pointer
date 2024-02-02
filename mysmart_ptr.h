@@ -28,9 +28,9 @@ class mysmart_ptr {
         void useCount();
 
     private:
-        //Pointer to the underlying object that is being shared
+        //Pointer which is shared between the shared pointers
         T* ptr_;
-        //Count of how many references are currently being made to the underlying object
+        //Count of how many references are currently in scope and being made to the underlying pointer
         int* count_;
 
 };
