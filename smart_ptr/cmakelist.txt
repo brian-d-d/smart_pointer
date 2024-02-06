@@ -1,0 +1,1 @@
+add_executable(MySmart_Ptr mysmart_ptr.cpp)
