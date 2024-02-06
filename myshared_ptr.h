@@ -1,24 +1,24 @@
-#ifndef MYSMART_PTR_H_
-#define MYSMART_PTR_H_
+#ifndef MYshared_ptr_H_
+#define MYshared_ptr_H_
 
 #include <iostream>
 
 template <class T>
-class mysmart_ptr {
+class myshared_ptr {
 
     public:
         //Passing something like new int() as the argument
-        mysmart_ptr(T *ptr);
+        myshared_ptr(T *ptr);
 
         //Passing an existing smart pointer
-        mysmart_ptr(mysmart_ptr<T>& smart_ptr);
+        myshared_ptr(myshared_ptr<T>& shared_ptr);
 
         //Creates a new smart pointer with memory allocated
-        mysmart_ptr();
+        myshared_ptr();
 
-        virtual ~mysmart_ptr();
+        virtual ~myshared_ptr();
 
-        virtual void operator=(mysmart_ptr<T>& their_smart_ptr);
+        virtual void operator=(myshared_ptr<T>& their_shared_ptr);
 
         virtual T* getPtr();
 

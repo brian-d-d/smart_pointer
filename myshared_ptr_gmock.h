@@ -1,11 +1,11 @@
-#ifndef MYSMART_PTR_GMOCK_H_
-#define MYSMART_PTR_GMOCK_H_
+#ifndef MYshared_ptr_GMOCK_H_
+#define MYshared_ptr_GMOCK_H_
 
 #include <iostream>
 #include <gmock/gmock.h>
 
 template <class T>
-class Mock_mysmart_ptr : public mysmart_ptr {
+class Mock_myshared_ptr : public myshared_ptr {
 
     public:
         MOCK_METHOD(T*, getPtr, (), (override));
