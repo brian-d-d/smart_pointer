@@ -1,1 +1,1 @@
-add_executable(MySmart_Ptr mysmart_ptr.cpp)
+add_library(MySmart_Ptr mysmart_ptr.cpp)

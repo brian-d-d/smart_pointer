@@ -1,3 +1,4 @@
 *.o
 main
 settings.json
+cmake_implementation/Makefile

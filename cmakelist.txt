@@ -1,5 +1,5 @@
-set(CMAKE_CXX_STANDARD 2b)
+set(CMAKE_CXX_STANDARD 11)
 add_executable(Main main.cpp)
-target_link_libraries(MySmart_Ptr mysmart_ptr.cpp)
+# target_link_libraries(MySmart_Ptr)
 add_subdirectory(smart_ptr)
 
