@@ -49,8 +49,8 @@ void myshared_ptr<T>::setCount(int* count) {
 }
 
 template <typename T>
-void myshared_ptr<T>::useCount() {
-    std::cout << *count_ << std::endl;
+int myshared_ptr<T>::useCount() {
+    return *count_;
 }
 
 template <typename T>

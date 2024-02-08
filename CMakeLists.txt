@@ -23,7 +23,7 @@ target_link_libraries(main PUBLIC GMock)
 install(TARGETS main DESTINATION ${PROJECT_BINARY_DIR}/..)
 
 include_directories(/usr/local/include/)
-link_directories(/usr/local/lib/)
+
 
 
 

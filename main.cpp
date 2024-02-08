@@ -1,48 +1,46 @@
 #include "myshared_ptr.h"
 #include "myshared_ptr_gmock.h"
-
+#include "unique_ptr_gtest.h"
+#include <gtest/gtest.h>
 
 using ::testing::AtLeast;
+using ::testing::Return;
 
-TEST(MySharedPtrTest, CanGetPtr) {
-    Mock_myshared_ptr<int> shared_ptr1;
-    Mock_myshared_ptr<int> shared_ptr2;
-    // shared_ptr2 = shared_ptr1;
+// TEST(MySharedPtrTest, CanGetCount) {
+//     Mock_myshared_ptr<int> shared_ptr1(new int(3));
+//     myshared_ptr<int> shared_ptr3(new int(3));
 
-    EXPECT_CALL(shared_ptr1, getPtr()).Times(AtLeast(1));
+//     // EXPECT_CALL(shared_ptr1, getPtr()).Times(1);
+//     // EXPECT_CALL(shared_ptr1, getCount()).Times(1);
 
+//     // shared_ptr1.setPtr(new int(3));
+
+//     std::cout << shared_ptr1.getPtr() << std::endl;
+//     std::cout << shared_ptr3.getPtr() << std::endl;
+
+// }
+
+// TEST(UniquePtrTest, Test1) {
+//     Mock_unique_ptr<int> unique_ptr1(new int(1));
+//     std::unique_ptr<int> unique_ptr2(new int(1));
+
+//     int* num = unique_ptr2.get();
+//     std::cout << *num << std::endl;
+
+// }
+
+TEST_F(unique_ptr_gtest<int>, ptr_value) {
+    EXPECT_EQ(*(unique_ptr1.get()), 1);
 }
 
+
+
+
 int main(int argc, char** argv) {
+    // ::testing::InitGoogleMock(&argc, argv);
+    // return RUN_ALL_TESTS();
 
-    ::testing::InitGoogleMock(&argc, argv);
+    testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
-  
-    // myshared_ptr<double> shared_ptr1(new double(2.5));
-  
-    // std::cout << "Smart ptr1 ptr value: " << *(shared_ptr1.getPtr()) << std::endl;
-    // std::cout << "Smart ptr1 count value: " << *(shared_ptr1.getCount()) << std::endl << std::endl;
-
-    // myshared_ptr<double> shared_ptr2(shared_ptr1);
-    // myshared_ptr<double> shared_ptr3;
-
-    // std::cout << "Smart ptr2 ptr value: " << *(shared_ptr2.getPtr()) << std::endl;
-    // std::cout << "Smart ptr2 count value: " << *(shared_ptr2.getCount()) << std::endl << std::endl;
-
-    // shared_ptr3 = shared_ptr1;
-    
-    // std::cout << "Smart ptr3 ptr value: " << *(shared_ptr3.getPtr()) << std::endl;
-    // std::cout << "Smart ptr3 count value: " << *(shared_ptr3.getCount()) << std::endl << std::endl;
-
-    // if (true) {
-    //     myshared_ptr<double> shared_ptr4;
-    //     shared_ptr4 = shared_ptr1;
-
-    //     std::cout << "Smart ptr4 ptr value: " << *(shared_ptr4.getPtr()) << std::endl;
-    //     std::cout << "Smart ptr4 count value: " << *(shared_ptr4.getCount()) << std::endl << std::endl;
-    // }
-    
-    // std::cout << "Smart ptr3 ptr value: " << *(shared_ptr3.getPtr()) << std::endl;
-    // std::cout << "Smart ptr3 count value: " << *(shared_ptr3.getCount()) << std::endl << std::endl;
 
 }

@@ -28,7 +28,7 @@ class myshared_ptr {
 
         virtual void setCount(int* count);
 
-        virtual void useCount();
+        virtual int useCount();
 
     private:
         //Pointer which is shared between the shared pointers
