@@ -13,7 +13,7 @@ mysmart_ptr<T>::mysmart_ptr(mysmart_ptr<T>& smart_ptr) {
 }
 
 template <typename T>
-mysmart_ptr<T>::mysmart_ptr() : ptr_(new T()), count_(new int(1)) {
+mysmart_ptr<T>::mysmart_ptr() : ptr_(nullptr), count_(new int(1)) {
 
 }
 
