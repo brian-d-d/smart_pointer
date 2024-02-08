@@ -13,12 +13,15 @@ set_target_properties(GTest PROPERTIES IMPORTED_LOCATION /usr/local/lib/libgtest
 add_library(GMock SHARED IMPORTED)
 set_target_properties(GMock PROPERTIES IMPORTED_LOCATION /usr/local/lib/libgmock.a)
 
+add_library(UniquePtrGTest INTERFACE unique_ptr_gtest.h)
+
 add_executable(main main.cpp)
 
 target_link_libraries(main PUBLIC MyShared_Ptr)
 target_link_libraries(main PUBLIC GTestMain)
 target_link_libraries(main PUBLIC GTest)
 target_link_libraries(main PUBLIC GMock)
+target_link_libraries(main PUBLIC UniquePtrGTest)
 
 install(TARGETS main DESTINATION ${PROJECT_BINARY_DIR}/..)
 
