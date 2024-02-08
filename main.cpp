@@ -30,6 +30,41 @@ using ::testing::Return;
 
 // }
 
+//Checks that the use count of the shared pointer increases and decreases as it should
+TEST(myshared_ptr_gtest_no_class, ownership1) {
+    int* num = new int(11);
+    myshared_ptr<int> myshared_ptr1(std::move(num));
+    if (true) {
+        myshared_ptr<int> myshared_ptr2 = myshared_ptr1;
+        std::shared_ptr<int> test;
+
+        EXPECT_EQ(myshared_ptr1.useCount(), 2);
+        EXPECT_EQ(myshared_ptr2.useCount(), 2);
+    }
+
+    EXPECT_EQ(myshared_ptr1.useCount(), 1);
+    EXPECT_EQ(*(myshared_ptr1.getPtr()), 11);
+}
+
+//Checks use count as well as the num pointer living on even after it goes out of scope
+TEST(myshared_ptr_gtest_no_class, ownership2) {
+    myshared_ptr<int> myshared_ptr1;
+
+    EXPECT_EQ(myshared_ptr1.getPtr(), nullptr);
+    if (true) {
+        int *num = new int(15);
+        myshared_ptr<int> myshared_ptr2(std::move(num));
+        myshared_ptr1 = myshared_ptr2;
+        
+        EXPECT_EQ(myshared_ptr1.useCount(), 2);
+        EXPECT_EQ(myshared_ptr2.useCount(), 2);
+    }
+
+    EXPECT_EQ(*(myshared_ptr1.getPtr()), 15);
+    EXPECT_EQ(myshared_ptr1.useCount(), 1);
+}
+
+//Checks all the values of the unique pointers were set properly
 TEST_F(unique_ptr_gtest, ptr_value) {
     EXPECT_EQ(*(unique_ptr1.get()), 1);
     EXPECT_EQ(*(unique_ptr2.get()), 2);

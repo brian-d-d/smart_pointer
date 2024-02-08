@@ -13,7 +13,7 @@ myshared_ptr<T>::myshared_ptr(myshared_ptr<T>& shared_ptr) {
 }
 
 template <typename T>
-myshared_ptr<T>::myshared_ptr() : ptr_(new T()), count_(new int(1)) {
+myshared_ptr<T>::myshared_ptr() : ptr_(nullptr), count_(new int(1)) {
 
 }
 
