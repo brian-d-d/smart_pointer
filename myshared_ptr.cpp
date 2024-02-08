@@ -1,8 +1,8 @@
 #include "myshared_ptr.h"
 
 template <typename T>
-myshared_ptr<T>::myshared_ptr(T* ptr) : ptr_(), count_(new int(1)) {
-    ptr_ = ptr;
+myshared_ptr<T>::myshared_ptr(T* ptr) : ptr_(ptr), count_(new int(1)) {
+    
 }
 
 template <typename T>
